@@ -23,7 +23,7 @@ public class Room {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
 
-    public Room(Long id, int doorNumber, int capacity) {
+    public Room(int doorNumber, int capacity) {
         this.users = new ArrayList<>();
         this.doorNumber = doorNumber;
         this.capacity = capacity;
