@@ -4,6 +4,7 @@ import com.example.demo.models.Room;
 import com.example.demo.models.User;
 import com.example.demo.repositories.RoomRepository;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,12 +20,14 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    UserService userService;
+
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("Data loader running");
 
         User user1 = new User("John", "Pass123");
         userRepository.save(user1);
@@ -32,8 +35,6 @@ public class DataLoader implements ApplicationRunner {
         Room room1 = new Room(1, 10);
         roomRepository.save(room1);
 
-        System.out.println("Data loader completed");
-
-
+        userService.bookUserToRoom(user1.getId(), room1.getId());
     }
 }

@@ -15,8 +15,11 @@ public class User {
     private String username;
     private String password;
 
-    @ManyToMany(mappedBy = "users")
     @JsonIgnoreProperties({"users"})
+    @ManyToMany
+    @JoinTable(name = "bookings",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "room_id"))
     private List<Room> rooms;
 
     public User(String username, String password) {
@@ -49,5 +52,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void bookUserToRoom(Room room) {
+        this.rooms.add(room);
     }
 }

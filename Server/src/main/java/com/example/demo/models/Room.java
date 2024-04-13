@@ -16,11 +16,9 @@ public class Room {
 
     private int doorNumber;
     private int capacity;
+
+    @ManyToMany(mappedBy = "rooms")
     @JsonIgnoreProperties({"rooms"})
-    @ManyToMany
-    @JoinTable(name = "bookings",
-            joinColumns = @JoinColumn(name = "room_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
 
     public Room(int doorNumber, int capacity) {
@@ -63,6 +61,8 @@ public class Room {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+
 }
 
 
