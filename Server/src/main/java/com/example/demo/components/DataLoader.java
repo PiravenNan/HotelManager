@@ -28,7 +28,6 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws Exception {
 
-
         User user1 = new User("John", "Pass123");
         userRepository.save(user1);
 
@@ -42,5 +41,6 @@ public class DataLoader implements ApplicationRunner {
         userService.bookUserToRoom(user2.getId(), room1.getId());
         userService.removeUserFromRoom(user2.getId(), room1.getId());
         userService.removeUserFromRoom(user1.getId(), room1.getId());
+
     }
 }

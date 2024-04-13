@@ -21,6 +21,10 @@ public class Room {
     @JsonIgnoreProperties({"rooms"})
     private List<User> users;
 
+    @ManyToOne
+    @JoinColumn(name = "building_id")
+    private Building building;
+
     public Room(int doorNumber, int capacity) {
         this.users = new ArrayList<>();
         this.doorNumber = doorNumber;
