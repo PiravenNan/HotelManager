@@ -32,9 +32,15 @@ public class DataLoader implements ApplicationRunner {
         User user1 = new User("John", "Pass123");
         userRepository.save(user1);
 
+        User user2 = new User("Sally", "Pass123");
+        userRepository.save(user2);
+
         Room room1 = new Room(1, 10);
         roomRepository.save(room1);
 
         userService.bookUserToRoom(user1.getId(), room1.getId());
+        userService.bookUserToRoom(user2.getId(), room1.getId());
+        userService.removeUserFromRoom(user2.getId(), room1.getId());
+        userService.removeUserFromRoom(user1.getId(), room1.getId());
     }
 }

@@ -5,10 +5,7 @@ import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -23,6 +20,18 @@ public class UserController {
     {
         try{
             return new ResponseEntity<>(userService.bookUserToRoom(userId,roomId),HttpStatus.OK);
+        }  catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping(value = "/booking/{userId}/{roomId}")
+    public ResponseEntity<Room> removeUserFromRoom(
+            @PathVariable Long userId,
+            @PathVariable Long roomId)
+    {
+        try{
+            return new ResponseEntity<>(userService.removeUserFromRoom(userId,roomId),HttpStatus.OK);
         }  catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

@@ -57,4 +57,8 @@ public class User {
     public void bookUserToRoom(Room room) {
         this.rooms.add(room);
     }
+
+    public void removeUserFromRoom(Room room) {
+        this.rooms.remove(room);
+    }
 }
