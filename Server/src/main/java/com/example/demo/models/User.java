@@ -1,6 +1,9 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -12,8 +15,11 @@ public class User {
     private String username;
     private String password;
 
-    public User(Long id, String username, String password) {
-        this.id = id;
+    @ManyToMany(mappedBy = "users")
+    @JsonIgnoreProperties({"users"})
+    private List<Room> rooms;
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
