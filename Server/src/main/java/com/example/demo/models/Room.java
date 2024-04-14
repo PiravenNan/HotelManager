@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -17,6 +18,7 @@ public class Room {
     private int doorNumber;
     private int capacity;
     private int dayRate;
+    private Boolean isAvailable;
 
     @ManyToMany(mappedBy = "rooms")
     @JsonIgnoreProperties({"rooms"})
@@ -24,6 +26,7 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "building_id")
+    @JsonIgnore
     private Building building;
 
     public Room(int doorNumber, int capacity, int dayRate) {
@@ -31,6 +34,7 @@ public class Room {
         this.doorNumber = doorNumber;
         this.capacity = capacity;
         this.dayRate = dayRate;
+        this.isAvailable = true;
     }
 
     public Room() {
@@ -82,6 +86,14 @@ public class Room {
 
     public void setBuilding(Building building) {
         this.building = building;
+    }
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 }
 

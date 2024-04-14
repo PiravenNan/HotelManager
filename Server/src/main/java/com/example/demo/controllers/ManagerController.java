@@ -1,16 +1,15 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTOs.AddBuildingDTO;
 import com.example.demo.DTOs.AddManagerDTO;
+import com.example.demo.models.Building;
 import com.example.demo.models.Manager;
 import com.example.demo.services.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/managers")
@@ -27,4 +26,13 @@ public class ManagerController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PostMapping(value = "addNewBuilding/{managerId}")
+    public ResponseEntity<Building> addNewBuilding(@PathVariable Long managerId, @RequestBody AddBuildingDTO addBuildingDTO){
+
+            return new ResponseEntity<>(managerService.addNewBuilding(managerId,addBuildingDTO), HttpStatus.CREATED);
+
+
+    }
+
 }

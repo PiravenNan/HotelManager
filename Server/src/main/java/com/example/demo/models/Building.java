@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -23,6 +24,7 @@ public class Building {
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
+    @JsonIgnore
     private Manager manager;
 
     public Building() {
