@@ -34,8 +34,8 @@ public class DataLoader implements ApplicationRunner {
         User user2 = new User("Sally456", "Pass123", "Sally Smith");
         userRepository.save(user2);
 
-        Room room1 = new Room(1, 10,100);
-        roomRepository.save(room1);
+        //Room room1 = new Room(1, 10,100);
+        //roomRepository.save(room1);
 
         //userService.bookUserToRoom(user1.getId(), room1.getId());
         //userService.bookUserToRoom(user2.getId(), room1.getId());

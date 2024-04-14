@@ -15,6 +15,7 @@ public class Manager {
 
     private String username;
     private String password;
+    private String name;
 
     @OneToMany(mappedBy = "manager")
     @Column
@@ -24,10 +25,11 @@ public class Manager {
     public Manager() {
     }
 
-    public Manager(String username, String password, List<Building> buildings) {
+    public Manager(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.buildings = new ArrayList<>();
+        this.name = name;
     }
 
     public String getUsername() {
@@ -52,5 +54,18 @@ public class Manager {
 
     public void setBuildings(List<Building> buildings) {
         this.buildings = buildings;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Building addBuilding(Building building){
+        this.buildings.add(building);
+        return building;
     }
 }
