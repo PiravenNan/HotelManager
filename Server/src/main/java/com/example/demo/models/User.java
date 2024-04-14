@@ -3,6 +3,7 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,7 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.rooms = new ArrayList<>();
     }
 
     public User() {
@@ -60,5 +62,13 @@ public class User {
 
     public void removeUserFromRoom(Room room) {
         this.rooms.remove(room);
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 }

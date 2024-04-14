@@ -16,6 +16,7 @@ public class Room {
 
     private int doorNumber;
     private int capacity;
+    private int dayRate;
 
     @ManyToMany(mappedBy = "rooms")
     @JsonIgnoreProperties({"rooms"})
@@ -25,10 +26,11 @@ public class Room {
     @JoinColumn(name = "building_id")
     private Building building;
 
-    public Room(int doorNumber, int capacity) {
+    public Room(int doorNumber, int capacity, int dayRate) {
         this.users = new ArrayList<>();
         this.doorNumber = doorNumber;
         this.capacity = capacity;
+        this.dayRate = dayRate;
     }
 
     public Room() {
@@ -66,7 +68,21 @@ public class Room {
         this.capacity = capacity;
     }
 
+    public int getDayRate() {
+        return dayRate;
+    }
 
+    public void setDayRate(int dayRate) {
+        this.dayRate = dayRate;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
 }
 
 
