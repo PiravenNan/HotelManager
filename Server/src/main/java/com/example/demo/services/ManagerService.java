@@ -44,7 +44,7 @@ public class ManagerService {
             buildingRepository.save(building);
 
             for (int i = 0; i<addBuildingDTO.getNumberOfFloors()*addBuildingDTO.getRoomsPerFloor();i++){
-                Room room = new Room(i+1, addBuildingDTO.getCapacity(),addBuildingDTO.getDayRate());
+                Room room = new Room(i+1, addBuildingDTO.getCapacityPerRoom(),addBuildingDTO.getDayRate());
                 room.setBuilding(building);
                 building.addRoomToBuilding(room);
                 roomRepository.save(room);

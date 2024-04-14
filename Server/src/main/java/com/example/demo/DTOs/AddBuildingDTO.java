@@ -4,16 +4,16 @@ public class AddBuildingDTO {
 
     private int numberOfFloors;
     private int roomsPerFloor;
-    private int capacity;
+    private int capacityPerRoom;
     private int dayRate;
 
     public AddBuildingDTO() {
     }
 
-    public AddBuildingDTO(int numberOfFloors, int roomsPerFloor, int capacity, int dayRate) {
+    public AddBuildingDTO(int numberOfFloors, int roomsPerFloor, int capacityPerRoom, int dayRate) {
         this.numberOfFloors = numberOfFloors;
         this.roomsPerFloor = roomsPerFloor;
-        this.capacity = capacity;
+        this.capacityPerRoom = capacityPerRoom;
         this.dayRate = dayRate;
     }
 
@@ -33,19 +33,19 @@ public class AddBuildingDTO {
         this.roomsPerFloor = roomsPerFloor;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
     public int getDayRate() {
         return dayRate;
     }
 
     public void setDayRate(int dayRate) {
         this.dayRate = dayRate;
+    }
+
+    public int getCapacityPerRoom() {
+        return capacityPerRoom;
+    }
+
+    public void setCapacityPerRoom(int capacityPerRoom) {
+        this.capacityPerRoom = capacityPerRoom;
     }
 }

@@ -29,9 +29,11 @@ public class ManagerController {
 
     @PostMapping(value = "addNewBuilding/{managerId}")
     public ResponseEntity<Building> addNewBuilding(@PathVariable Long managerId, @RequestBody AddBuildingDTO addBuildingDTO){
-
-            return new ResponseEntity<>(managerService.addNewBuilding(managerId,addBuildingDTO), HttpStatus.CREATED);
-
+        try {
+            return new ResponseEntity<>(managerService.addNewBuilding(managerId, addBuildingDTO), HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
     }
 
