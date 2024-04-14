@@ -18,7 +18,7 @@ The Hotel Manager App is a web application which allows hotel managers to manage
 1. Clone the repository:
 
 ```bash
-git  clone 
+git clone https://github.com/PiravenNan/HotelManager 
 ```
 
 2. Navigate to the project directory
