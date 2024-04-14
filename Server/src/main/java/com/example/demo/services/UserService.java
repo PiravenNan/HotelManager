@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.DTOs.AddUserDTO;
 import com.example.demo.models.Room;
 import com.example.demo.models.User;
 import com.example.demo.repositories.RoomRepository;
@@ -45,9 +46,23 @@ public class UserService {
 
             return room;
         }
-
         return null;
+    }
 
+    public User findUserById(Long userId) {
+        if (userRepository.existsById(userId)) {
+            return userRepository.findById(userId).get();
+        }
+        return null;
+    }
 
+    public User addNewUser(AddUserDTO addUserDTO) {
+        try{
+            User user = new User(addUserDTO.getUsername(), addUserDTO.getPassword(), addUserDTO.getName());
+            userRepository.save(user);
+            return user;
+        }catch (Exception e){
+            return null;
+        }
     }
 }

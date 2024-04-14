@@ -28,19 +28,19 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws Exception {
 
-        User user1 = new User("John", "Pass123");
+        User user1 = new User("John123", "Pass123", "John Oliver");
         userRepository.save(user1);
 
-        User user2 = new User("Sally", "Pass123");
+        User user2 = new User("Sally456", "Pass123", "Sally Smith");
         userRepository.save(user2);
 
-        Room room1 = new Room(1, 10);
+        Room room1 = new Room(1, 10,100);
         roomRepository.save(room1);
 
-        userService.bookUserToRoom(user1.getId(), room1.getId());
-        userService.bookUserToRoom(user2.getId(), room1.getId());
-        userService.removeUserFromRoom(user2.getId(), room1.getId());
-        userService.removeUserFromRoom(user1.getId(), room1.getId());
+        //userService.bookUserToRoom(user1.getId(), room1.getId());
+        //userService.bookUserToRoom(user2.getId(), room1.getId());
+        //userService.removeUserFromRoom(user2.getId(), room1.getId());
+        //userService.removeUserFromRoom(user1.getId(), room1.getId());
 
     }
 }

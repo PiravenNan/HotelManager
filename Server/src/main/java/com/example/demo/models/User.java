@@ -15,6 +15,7 @@ public class User {
 
     private String username;
     private String password;
+    private String name;
 
     @JsonIgnoreProperties({"users"})
     @ManyToMany
@@ -23,10 +24,11 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "room_id"))
     private List<Room> rooms;
 
-    public User(String username, String password) {
+    public User(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.rooms = new ArrayList<>();
+        this.name = name;
     }
 
     public User() {
@@ -70,5 +72,13 @@ public class User {
 
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

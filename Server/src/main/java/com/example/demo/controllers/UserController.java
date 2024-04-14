@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTOs.AddUserDTO;
 import com.example.demo.models.Room;
+import com.example.demo.models.User;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +34,24 @@ public class UserController {
     {
         try{
             return new ResponseEntity<>(userService.removeUserFromRoom(userId,roomId),HttpStatus.OK);
+        }  catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable Long userId){
+        try{
+            return new ResponseEntity<>(userService.findUserById(userId),HttpStatus.OK);
+        }  catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping(value = "/addUser")
+    public ResponseEntity<User> addNewUser(@RequestBody AddUserDTO addUserDTO){
+        try{
+            return new ResponseEntity<>(userService.addNewUser(addUserDTO),HttpStatus.OK);
         }  catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
