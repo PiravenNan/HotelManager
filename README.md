@@ -4,7 +4,7 @@
 
 The Hotel Manager App is a web application which allows hotel managers to manage bookings and users to book those rooms.
 
-# Hotel Manager API
+## **Hotel Manager API**
 
 ## Libraries Used
 
