@@ -1,6 +1,6 @@
 # Hotel Manager API
 
-## Project Description
+## Description
 
 This is the backend API for the Hotel Manager App, which is a web application which allows hotel managers to manage bookings and users to book those rooms.
 
@@ -69,10 +69,10 @@ mvn spring-boot:run
   - Request Body: 
     ```json
     {
-      "numberOfFloors"  : int,
-      "roomsPerFloor"   : int,
-      "capacityPerRoom" : int ,
-      "dayRate"         : int
+      "numberOfFloors"  : "int",
+      "roomsPerFloor"   : "int",
+      "capacityPerRoom" : "int",
+      "dayRate"         : "int"
     }
     ```
 
