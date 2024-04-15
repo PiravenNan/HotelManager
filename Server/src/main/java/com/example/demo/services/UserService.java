@@ -58,11 +58,15 @@ public class UserService {
 
     public User addNewUser(AddUserDTO addUserDTO) {
         try{
-            User user = new User(addUserDTO.getUsername(), addUserDTO.getPassword(), addUserDTO.getName());
-            userRepository.save(user);
-            return user;
+            if (!userRepository.existsByUsername(addUserDTO.getUsername())) {
+                User user = new User(addUserDTO.getUsername(), addUserDTO.getPassword(), addUserDTO.getName());
+                userRepository.save(user);
+                return user;
+            }
+            return null;
         }catch (Exception e){
             return null;
         }
     }
+
 }

@@ -25,12 +25,16 @@ public class ManagerService {
     RoomRepository roomRepository;
 
     public Manager addNewManager(AddManagerDTO addManagerDTO) {
-        if (!managerRepository.existsByUsername(addManagerDTO.getUsername())){
-            Manager manager = new Manager(addManagerDTO.getUsername(), addManagerDTO.getPassword(), addManagerDTO.getName());
-            managerRepository.save(manager);
-            return manager;
+        try {
+            if (!managerRepository.existsByUsername(addManagerDTO.getUsername())) {
+                Manager manager = new Manager(addManagerDTO.getUsername(), addManagerDTO.getPassword(), addManagerDTO.getName());
+                managerRepository.save(manager);
+                return manager;
+            }
+            return null;
+        }catch (Exception e){
+            return null;
         }
-        return null;
     }
 
     public Building addNewBuilding(Long mangerId, AddBuildingDTO addBuildingDTO) {
