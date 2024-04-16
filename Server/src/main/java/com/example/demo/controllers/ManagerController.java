@@ -37,4 +37,13 @@ public class ManagerController {
 
     }
 
+    @GetMapping(value = "/{managerId}")
+    public  ResponseEntity<Manager> getManagerById(@PathVariable Long managerId){
+        try{
+            return new ResponseEntity<>(managerService.getManagerById(managerId),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

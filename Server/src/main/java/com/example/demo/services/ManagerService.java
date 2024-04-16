@@ -62,4 +62,12 @@ public class ManagerService {
 
         return null;
     }
+    
+    public Manager getManagerById(Long managerId) {
+        Optional<Manager> optionalManager = managerRepository.findById(managerId);
+        if(optionalManager.isPresent()){
+            return optionalManager.get();
+        }
+        return null;
+    }
 }
