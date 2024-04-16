@@ -51,6 +51,12 @@ mvn spring-boot:run
 
 ### Managers
 
+- **Get Manager by Id:**
+
+  - Method: `Post`
+  - URL: `/managers/{managerId}`
+
+
 - **Add New Manager:**
 
   - Method: `Post`
