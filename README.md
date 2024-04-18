@@ -49,41 +49,6 @@ mvn spring-boot:run
 
 ## API Routes
 
-### Managers
-
-- **Get Manager by Id:**
-
-  - Method: `Post`
-  - URL: `/managers/{managerId}`
-
-
-- **Add New Manager:**
-
-  - Method: `Post`
-  - URL: `/managers/addManager`
-  - Request Body: 
-    ```json
-    {
-      "username" : "String",
-      "password" : "String",
-      "name"     : "String"
-    }
-    ```
-
-- **Add New Building:**
-
-  - Method: `Post`
-  - URL: `/managers/addNewBuilding/1`
-  - Request Body: 
-    ```json
-    {
-      "numberOfFloors"  : "int",
-      "roomsPerFloor"   : "int",
-      "capacityPerRoom" : "int",
-      "dayRate"         : "int"
-    }
-    ```
-
 ### Users
 
 - **Add New User:**
@@ -113,3 +78,44 @@ mvn spring-boot:run
 
   - Method: `GET`
   - URL: `/users/user/{userId}`
+
+### Managers
+
+- **Get Manager by Id:**
+
+  - Method: `GET`
+  - URL: `/managers/{managerId}`
+
+
+- **Add New Manager:**
+
+  - Method: `Post`
+  - URL: `/managers/addManager`
+  - Request Body:
+    ```json
+    {
+      "username" : "String",
+      "password" : "String",
+      "name"     : "String"
+    }
+    ```
+
+- **Add New Building:**
+
+  - Method: `Post`
+  - URL: `/managers/addNewBuilding/1`
+  - Request Body:
+    ```json
+    {
+      "numberOfFloors"  : "int",
+      "roomsPerFloor"   : "int",
+      "capacityPerRoom" : "int",
+      "dayRate"         : "int"
+    }
+    ```
+### Buildings
+
+- **Get Building by Id:**
+
+  - Method: `GET`
+  - URL: `/buildings/{buildingId}`
