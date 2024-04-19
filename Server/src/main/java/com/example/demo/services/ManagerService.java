@@ -12,6 +12,7 @@ import com.example.demo.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,6 +69,16 @@ public class ManagerService {
         if(optionalManager.isPresent()){
             return optionalManager.get();
         }
+        return null;
+    }
+
+    public List<Building> getAllBuildingsByManagerId(Long managerId) {
+        List<Building> buildingList = buildingRepository.findAllByManagerId(managerId);
+
+        if (!buildingList.isEmpty()){
+            return buildingList;
+        }
+
         return null;
     }
 }

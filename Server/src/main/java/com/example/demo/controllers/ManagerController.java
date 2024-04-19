@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/managers")
 public class ManagerController {
@@ -37,10 +39,19 @@ public class ManagerController {
     }
 
     @GetMapping(value = "/{managerId}")
-    public  ResponseEntity<Manager> getManagerById(@PathVariable Long managerId){
+    public ResponseEntity<Manager> getManagerById(@PathVariable Long managerId){
         try{
             return new ResponseEntity<>(managerService.getManagerById(managerId),HttpStatus.OK);
         }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/allBuildings/{managerId}")
+    public ResponseEntity<List<Building>> getAllBuildingsByManagerId(@PathVariable Long managerId){
+        try{
+            return new ResponseEntity<>(managerService.getAllBuildingsByManagerId(managerId),HttpStatus.OK);
+        } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
