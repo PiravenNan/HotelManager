@@ -113,6 +113,12 @@ mvn spring-boot:run
       "dayRate"         : "int"
     }
     ```
+
+- **Get All Buildings by Manager's Id:**
+
+  - Method: `GET`
+  - URL: `/allBuildings/{managerId}`
+
 ### Buildings
 
 - **Get Building by Id:**
