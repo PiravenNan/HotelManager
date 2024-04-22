@@ -125,3 +125,10 @@ mvn spring-boot:run
 
   - Method: `GET`
   - URL: `/buildings/{buildingId}`
+
+### Rooms
+
+- **Get Room by Id:**
+
+  - Method: `GET`
+  - URL: `/rooms/{roomId}`
