@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -69,4 +71,22 @@ public class UserService {
         }
     }
 
+    public User updateUser(Long userId, AddUserDTO addUserDTO) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if (optionalUser.isPresent()){
+            User user = optionalUser.get();
+
+            if(!addUserDTO.getPassword().isEmpty()){
+                user.setPassword(addUserDTO.getPassword());
+            }
+
+            if (!addUserDTO.getName().isEmpty()){
+                user.setName(addUserDTO.getName());
+            }
+
+            userRepository.save(user);
+            return user;
+        }
+        return null;
+    }
 }

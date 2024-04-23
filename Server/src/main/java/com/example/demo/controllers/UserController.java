@@ -57,4 +57,13 @@ public class UserController {
         }
     }
 
+    @PatchMapping(value = "updateUser/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody AddUserDTO addUserDTO){
+        try{
+            return new ResponseEntity<>(userService.updateUser(userId,addUserDTO),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }
