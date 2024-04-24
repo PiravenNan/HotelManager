@@ -64,6 +64,18 @@ mvn spring-boot:run
     }
     ```
 
+- **Update User Info:**
+
+  - Method: `Post`
+  - URL: `/users/updateUser/{userId}`
+  - Request Body:
+    ```json
+    {
+      "password" : "String (optional)",
+      "name"     : "String (optional)"
+    }
+    ```
+
 - **Book User to Room:**
 
   - Method: `POST`
