@@ -56,4 +56,13 @@ public class ManagerController {
         }
     }
 
+    @PatchMapping(value = "updateManager/{managerId}")
+    public ResponseEntity<Manager> updateManger(@PathVariable Long managerId, @RequestBody AddManagerDTO addManagerDTO){
+        try{
+            return new ResponseEntity<>(managerService.updateManager(managerId,addManagerDTO),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

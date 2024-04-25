@@ -81,4 +81,20 @@ public class ManagerService {
 
         return null;
     }
+
+    public Manager updateManager(Long managerId, AddManagerDTO addManagerDTO) {
+        Optional<Manager> optionalManager = managerRepository.findById(managerId);
+        if(optionalManager.isPresent()){
+            Manager manager = optionalManager.get();
+
+            if(!addManagerDTO.getName().isEmpty()){
+                manager.setName(addManagerDTO.getName());
+            }
+
+            if (!addManagerDTO.getPassword().isEmpty()){
+                manager.setPassword(addManagerDTO.getPassword());
+            }
+        }
+        return null;
+    }
 }
