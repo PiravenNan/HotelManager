@@ -63,10 +63,10 @@ mvn spring-boot:run
       "name"     : "String"
     }
     ```
-
+    
 - **Update User Info:**
 
-  - Method: `Post`
+  - Method: `Patch`
   - URL: `/users/updateUser/{userId}`
   - Request Body:
     ```json
@@ -109,6 +109,18 @@ mvn spring-boot:run
       "username" : "String",
       "password" : "String",
       "name"     : "String"
+    }
+    ```
+
+- **Update Manager Info:**
+
+  - Method: `Patch`
+  - URL: `/managers/updateManager/{managerId}`
+  - Request Body:
+    ```json
+    {
+      "password" : "String (optional)",
+      "name"     : "String (optional)"
     }
     ```
 
