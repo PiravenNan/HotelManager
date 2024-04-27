@@ -21,13 +21,17 @@ public class UserService {
 
     @Transactional
     public Room bookUserToRoom(Long userId, Long roomId) {
-        //adds only one user per room for now, but should check by date in future
-        if (userRepository.existsById(userId) && roomRepository.existsById(roomId)  && roomRepository.findById(roomId).get().getUsers().isEmpty()){
 
-            User user = userRepository.findById(userId).get();
-            Room room = roomRepository.findById(roomId).get();
+        Optional<User> optionalUser = userRepository.findById(userId);
+        Optional<Room> optionalRoom = roomRepository.findById(roomId);
+        //adds only one user per room for now, but should check by date in future
+        if (optionalUser.isPresent() && optionalRoom.isPresent()  && optionalRoom.get().getAvailable()){
+
+            User user = optionalUser.get();
+            Room room = optionalRoom.get();
 
             user.bookUserToRoom(room);
+            room.setAvailable(false);
             userRepository.save(user);
         }
 
@@ -44,6 +48,7 @@ public class UserService {
             Room room = roomRepository.findById(roomId).get();
 
             user.removeUserFromRoom(room);
+            room.setAvailable(true);
             userRepository.save(user);
 
             return room;
