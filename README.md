@@ -156,3 +156,15 @@ mvn spring-boot:run
 
   - Method: `GET`
   - URL: `/rooms/{roomId}`
+
+- **Update Room Properties:**
+
+  - Method: `Patch`
+  - URL: `/rooms/updateRoom/{roomId}`
+  - Request Body:
+    ```json
+    {
+      "Capacity" : "int (optional)",
+      "DayRate"  : "int (optional)"
+    }
+    ```
