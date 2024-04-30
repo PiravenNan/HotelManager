@@ -32,4 +32,13 @@ public class RoomController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping (value = "/getRoomByDoorNumber/{buildingId}/{doorNumber}")
+    public ResponseEntity<Room> getRoomByDoorNumber(@PathVariable Long buildingId, @PathVariable int doorNumber){
+        try{
+            return new ResponseEntity<>(roomService.getRoomByDoorNumber(buildingId,doorNumber),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }

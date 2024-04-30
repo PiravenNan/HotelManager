@@ -40,4 +40,8 @@ public class RoomService {
 
         return null;
     }
+
+    public Room getRoomByDoorNumber(Long buildingId, int doorNumber) {
+        return roomRepository.findAllByBuildingIdAndDoorNumber(buildingId,doorNumber);
+    }
 }
