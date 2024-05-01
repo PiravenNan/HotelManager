@@ -157,6 +157,11 @@ mvn spring-boot:run
   - Method: `GET`
   - URL: `/rooms/{roomId}`
 
+- **Get Room by Building and RoomNumber:**
+
+  - Method: `GET`
+  - URL: `/rooms/getRoomByDoorNumber/{buildingID}/{doorNumber}`
+
 - **Update Room Properties:**
 
   - Method: `Patch`
