@@ -5,6 +5,7 @@ import LogInForm from "../components/LogInForm";
 const HotelManagerContainer = () => {
     return (
         <>
+        <h2>Log in here:</h2>
             <LogInForm/>
         </>
     );
