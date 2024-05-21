@@ -1,7 +1,7 @@
 const LogInForm = () =>{
     return (
         <>
-        <h2>Log-in form here:</h2>
+        <h2>Log-in :</h2>
         </>
     );
 }
